@@ -1,0 +1,66 @@
+package program;
+
+import java.util.Scanner;
+
+public class p5 {
+	public static boolean isVowel(char ch){
+		return "AEIOUaeiou".contains(""+ch);
+	}
+	public static void main(String[] args) {
+		int cnt;
+		char nn;
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		sc.nextLine();
+		String[] arr=new String[n];
+		for(int i=0;i<n;i++)
+			arr[i]=sc.nextLine();
+		String name=arr[0];
+		int max=0;
+		int cnnt[] = new int[5];
+		for(int i=0;i<n;i++)
+		{
+			cnt=0;
+			for(int j=0;j<arr[i].length()-1;j++)
+			{
+				if(isVowel(arr[i].charAt(j)))
+					cnt++;
+			}
+			if(max<=cnt)
+			{
+				max=cnt;
+				name="";
+				name=arr[i];
+			}
+		}
+		for (int j = 0; j <name.length();j++) {
+				if (name.charAt(j) == 'a')
+					cnnt[0]++;nn=name.charAt(j);
+				if (name.charAt(j) == 'e')
+					cnnt[1]++;
+				if (name.charAt(j) == 'i') 
+					cnnt[2]++;
+				if (name.charAt(j) == 'o') 
+					cnnt[3]++;
+				if (name.charAt(j) == 'u') 
+					cnnt[4]++;
+		}
+		int maxx=cnnt[0];
+		for (int i= 0; i <4;i++) {
+				if(maxx<=cnnt[i])
+				{
+					maxx=cnnt[i];
+				}
+		}
+
+		System.out.println(name);
+		System.out.println(maxx);
+	}
+
+}
+/*5
+Mangal Singh
+Baba Bol Bachchan
+Buri Jadugarni
+Achhi Jadugarni
+Kirmada*/
