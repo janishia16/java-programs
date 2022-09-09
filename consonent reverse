@@ -1,0 +1,38 @@
+package program;
+
+import java.util.Scanner;
+
+public class p3 {
+	public static boolean Vowel(char ch){
+		return "AEIOUaeiou".contains(""+ch);
+	}
+	public static boolean Consonant(char ch){
+		return !Vowel(ch);
+	}
+	public static void main(String[] args) {
+				char temp;
+				Scanner sc=new Scanner(System.in);
+				String str=sc.nextLine();
+				char[] s = str.toCharArray();
+	
+				for (int i = 0,j=s.length-1;i<j; i++,j--)
+				{
+					if(Consonant(s[i])&&Consonant(s[j]))
+					{
+						temp=s[i];
+						s[i]=s[j];
+						s[j]=temp;
+					}
+					else {
+						if(!Consonant(s[i])){
+							j++;
+						}
+						else {
+							i--;
+						}
+					}
+				}
+				System.out.print(s);
+	}
+
+}
